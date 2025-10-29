@@ -217,5 +217,35 @@ namespace MatrixLib.Tests
                 new Matrix(new double[,] { { 2, 3 }, { 4, 5 } })
             };
         }
+
+        [Theory]
+        [MemberData(nameof(MultiplyByIdentityData))]
+        public void MultiplyByIdentity_ReturnsOriginal(Matrix matrix)
+        {
+            Matrix identityMatrix = Matrix.Identity(matrix.Rows);
+            Matrix resultMatrix = matrix.Multiply(identityMatrix);
+            Assert.Equal(matrix, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> MultiplyByIdentityData()
+        {
+            yield return new object[] { new Matrix(new double[,] { { 1, 2 }, { 3, 4 } }) };
+            yield return new object[] { new Matrix(new double[,] { { 0, 5 }, { -1, 2 } }) };
+            yield return new object[] { new Matrix(new double[,] { { 2 } }) };
+        }
+
+        [Theory]
+        [MemberData(nameof(TransposeTwiceData))]
+        public void TransposeTwice_ReturnsOriginal(Matrix matrix)
+        {
+            Matrix resultMatrix = matrix.Transpose().Transpose();
+            Assert.Equal(matrix, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> TransposeTwiceData()
+        {
+            yield return new object[] { new Matrix(new double[,] { { 1, 2 }, { 3, 4 } }) };
+            yield return new object[] { new Matrix(new double[,] { { 1, 2, 3 }, { 4, 5, 6 } }) };
+        }
     }
 }
