@@ -101,5 +101,121 @@ namespace MatrixLib.Tests
 
             Assert.False(matrix1.Equals(matrix2));
         }
+
+
+
+        [Theory]
+        [MemberData(nameof(AdditionData))]
+        public void Add_Theory_TwoMatrices_ReturnsExpected(Matrix matrix1, Matrix matrix2, Matrix expectedMatrix)
+        {
+            Matrix resultMatrix = matrix1.Add(matrix2);
+            Assert.Equal(expectedMatrix, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> AdditionData()
+        {
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 1 }, { 1, 1 } }),
+                new Matrix(new double[,] { { 2, 2 }, { 2, 2 } }),
+                new Matrix(new double[,] { { 3, 3 }, { 3, 3 } })
+            };
+
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { -1, 5 }, { 3, 0 } }),
+                new Matrix(new double[,] { { 1, -2 }, { -3, 4 } }),
+                new Matrix(new double[,] { { 0, 3 }, { 0, 4 } })
+            };
+        }
+
+        [Theory]
+        [MemberData(nameof(MultiplicationData))]
+        public void Multiply_Theory_ReturnsExpected(Matrix matrix1, Matrix matrix2, Matrix expectedMatrix)
+        {
+            Matrix resultMatrix = matrix1.Multiply(matrix2);
+            Assert.Equal(expectedMatrix, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> MultiplicationData()
+        {
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 2 }, { 3, 4 } }),
+                new Matrix(new double[,] { { 2, 0 }, { 1, 2 } }),
+                new Matrix(new double[,] { { 4, 4 }, { 10, 8 } })
+            };
+
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 0 }, { 0, 1 } }),
+                new Matrix(new double[,] { { 9, 8 }, { 7, 6 } }),
+                new Matrix(new double[,] { { 9, 8 }, { 7, 6 } })
+            };
+        }
+
+        [Theory]
+        [MemberData(nameof(TransposeData))]
+        public void Transpose_Theory_ReturnsExpected(Matrix inputMatrix, Matrix expectedMatrix)
+        {
+            Matrix resultMatrix = inputMatrix.Transpose();
+            Assert.Equal(expectedMatrix, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> TransposeData()
+        {
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 2, 3 } }),
+                new Matrix(new double[,] { { 1 }, { 2 }, { 3 } })
+            };
+
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 2 }, { 3, 4 }, { 5, 6 } }),
+                new Matrix(new double[,] { { 1, 3, 5 }, { 2, 4, 6 } })
+            };
+        }
+
+        [Theory]
+        [MemberData(nameof(IdentitySizes))]
+        public void Identity_Theory_IsDiagonal(int size)
+        {
+            Matrix identityMatrix = Matrix.Identity(size);
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    Assert.Equal(i == j ? 1 : 0, identityMatrix[i, j]);
+        }
+
+        public static IEnumerable<object[]> IdentitySizes()
+        {
+            yield return new object[] { 1 };
+            yield return new object[] { 2 };
+            yield return new object[] { 5 };
+        }
+
+        [Theory]
+        [MemberData(nameof(AddSubtractReversibilityData))]
+        public void AddThenSubtract_ReturnsOriginal(Matrix matrix1, Matrix matrix2)
+        {
+            Matrix resultMatrix = matrix1.Add(matrix2).Subtract(matrix2);
+            Assert.Equal(matrix1, resultMatrix);
+        }
+
+        public static IEnumerable<object[]> AddSubtractReversibilityData()
+        {
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { 1, 2 }, { 3, 4 } }),
+                new Matrix(new double[,] { { 5, 6 }, { 7, 8 } })
+            };
+
+            yield return new object[]
+            {
+                new Matrix(new double[,] { { -1, 0 }, { 0, -1 } }),
+                new Matrix(new double[,] { { 2, 3 }, { 4, 5 } })
+            };
+        }
     }
 }
