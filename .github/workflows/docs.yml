@@ -13,16 +13,15 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Generate Documentation with Doxygen
-      uses: mattnotmitt/doxygen-action@v1.12.0
-      with:
-        working-directory: .
-        doxyfile-path: ./Doxyfile
+    - name: Install Doxygen and Graphviz
+      run: sudo apt update && sudo apt install -y doxygen graphviz
+
+    - name: Generate Documentation
+      run: doxygen Doxyfile
 
     - name: Deploy Documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./html
-        publish_branch: main
-
+        publish_branch: gh-pages
