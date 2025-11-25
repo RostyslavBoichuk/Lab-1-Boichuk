@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
   generate-and-deploy:
     runs-on: ubuntu-latest
@@ -13,6 +13,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: Install Doxygen and Graphviz
+      run: sudo apt update && sudo apt install -y doxygen graphviz
+
     - name: Ensure docs folder exists
       run: mkdir -p docs
 
@@ -20,13 +23,9 @@ jobs:
       run: |
         if [ ! -f docs/Doxyfile ]; then
           doxygen -g docs/Doxyfile
-          # Встановлюємо базові параметри для HTML
           sed -i 's|OUTPUT_DIRECTORY       =|OUTPUT_DIRECTORY       = html|' docs/Doxyfile
           sed -i 's|GENERATE_HTML          = NO|GENERATE_HTML          = YES|' docs/Doxyfile
         fi
-
-    - name: Install Doxygen and Graphviz
-      run: sudo apt update && sudo apt install -y doxygen graphviz
 
     - name: Generate Documentation
       run: doxygen docs/Doxyfile
@@ -37,5 +36,3 @@ jobs:
         github_token: ${{ secrets.GH_PAT }}
         publish_dir: ./html
         publish_branch: gh-pages
-
-        
