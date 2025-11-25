@@ -7,21 +7,22 @@ on:
 
 jobs:
   generate-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Install Doxygen
-      run: choco install doxygen -y
-
-    - name: Generate Documentation
-      run: doxygen Doxyfile
+    - name: Generate Documentation with Doxygen
+      uses: mattnotmitt/doxygen-action@v1.12.0
+      with:
+        working-directory: .
+        doxyfile-path: ./Doxyfile
 
     - name: Deploy Documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/html
+        publish_dir: ./html
         publish_branch: main
+
