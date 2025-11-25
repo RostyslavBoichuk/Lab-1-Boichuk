@@ -19,8 +19,9 @@ jobs:
     - name: Generate Documentation
       run: doxygen Doxyfile
 
-    - name: Deploy Documentation to GitHub Pages
+    - name: Deploy Documentation to GitHub Pages Branch
       uses: peaceiris/actions-gh-pages@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/html
+        publish_branch: gh-pages-docs
