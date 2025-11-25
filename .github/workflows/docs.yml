@@ -13,19 +13,29 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: Ensure docs folder exists
+      run: mkdir -p docs
+
+    - name: Ensure Doxyfile exists
+      run: |
+        if [ ! -f docs/Doxyfile ]; then
+          doxygen -g docs/Doxyfile
+          # Встановлюємо базові параметри для HTML
+          sed -i 's|OUTPUT_DIRECTORY       =|OUTPUT_DIRECTORY       = html|' docs/Doxyfile
+          sed -i 's|GENERATE_HTML          = NO|GENERATE_HTML          = YES|' docs/Doxyfile
+        fi
+
     - name: Install Doxygen and Graphviz
       run: sudo apt update && sudo apt install -y doxygen graphviz
 
     - name: Generate Documentation
-      uses: mattnotmitt/doxygen-action@v1.12.0
-      with:
-        working-directory: ./docs
-        doxyfile-path: ./Doxyfile
+      run: doxygen docs/Doxyfile
 
     - name: Deploy Documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_PAT }}
-        publish_dir: ./docs/html
+        publish_dir: ./html
         publish_branch: gh-pages
+
         
