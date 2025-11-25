@@ -1,0 +1,26 @@
+name: Generate and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Doxygen
+      uses: matthewdavis/doxygen-action@v1.0.1
+
+    - name: Generate Documentation
+      run: doxygen Doxyfile
+
+    - name: Deploy Documentation to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/html
