@@ -18,19 +18,16 @@ namespace MatrixLib
     {
         private readonly double[,] _data;
 
-        /// <summary>@brief Number of matrix rows.</summary>
         public int Rows { get; }
-
-        /// <summary>@brief Number of matrix columns.</summary>
         public int Cols { get; }
 
         /// <summary>
-    /// @brief Indexer for accessing matrix elements.
-    /// @param i Row index.
-    /// @param j Column index.
-    /// @return Value at position (i, j).
-    /// @echo Allows reading and writing individual matrix elements using [i,j] syntax.
-    /// </summary>
+        /// @brief Indexer for accessing matrix elements.
+        /// @param i Row index.
+        /// @param j Column index.
+        /// @return Value at position (i, j).
+        /// @echo Allows reading and writing individual matrix elements using [i,j] syntax.
+        /// </summary>
         public double this[int i, int j]
         {
             get => _data[i, j];
@@ -38,13 +35,13 @@ namespace MatrixLib
         }
 
 
-    /// <summary>
-    /// @brief Creates an empty matrix of given dimensions.
-    /// @param rows Number of rows.
-    /// @param cols Number of columns.
-    /// @throws ArgumentException If dimensions are non-positive.
-    /// @echo Initializes all matrix elements to 0.
-    /// </summary>
+        /// <summary>
+        /// @brief Creates an empty matrix of given dimensions.
+        /// @param rows Number of rows.
+        /// @param cols Number of columns.
+        /// @throws ArgumentException If dimensions are non-positive.
+        /// @echo Initializes all matrix elements to 0.
+        /// </summary>
         public Matrix(int rows, int cols)
         {
             if (rows <= 0 || cols <= 0)
@@ -55,12 +52,12 @@ namespace MatrixLib
         }
 
 
-    /// <summary>
-    /// @brief Creates a matrix from a 2D array.
-    /// @param source Source 2D double array.
-    /// @throws ArgumentNullException If source is null.
-    /// @echo Copies all elements from the source array into the new matrix.
-    /// </summary>
+        /// <summary>
+        /// @brief Creates a matrix from a 2D array.
+        /// @param source Source 2D double array.
+        /// @throws ArgumentNullException If source is null.
+        /// @echo Copies all elements from the source array into the new matrix.
+        /// </summary>  
         public Matrix(double[,] source)
         {
             if (source == null)
@@ -73,13 +70,13 @@ namespace MatrixLib
         }
 
 
-    /// <summary>
-    /// @brief Adds two matrices.
-    /// @param other Matrix to add.
-    /// @return New matrix containing the sum.
-    /// @throws ArgumentException If sizes differ.
-    /// @echo Performs element-wise addition and returns a new matrix.
-    /// </summary>
+        /// <summary>
+        /// @brief Adds two matrices.
+        /// @param other Matrix to add.
+        /// @return New matrix containing the sum.
+        /// @throws ArgumentException If sizes differ.
+        /// @echo Performs element-wise addition and returns a new matrix.
+        /// </summary>  
         public Matrix Add(Matrix other)
         {
             ValidateSameSize(other);
@@ -92,13 +89,13 @@ namespace MatrixLib
             return result;
         }
 
-    /// <summary>
-    /// @brief Subtracts another matrix from this one.
-    /// @param other Matrix to subtract.
-    /// @return New matrix containing the result.
-    /// @throws ArgumentException If sizes differ.
-    /// @echo Performs element-wise subtraction and returns a new matrix.
-    /// </summary>
+        /// <summary>
+        /// @brief Subtracts another matrix from this one.
+        /// @param other Matrix to subtract.
+        /// @return New matrix containing the result.
+        /// @throws ArgumentException If sizes differ.
+        /// @echo Performs element-wise subtraction and returns a new matrix.
+        /// </summary>
         public Matrix Subtract(Matrix other)
         {
             ValidateSameSize(other);
@@ -111,13 +108,13 @@ namespace MatrixLib
             return result;
         }
 
-    /// <summary>
-    /// @brief Multiplies this matrix by another.
-    /// @param other Right-hand matrix.
-    /// @return Product matrix.
-    /// @throws ArgumentException If dimensions are incompatible.
-    /// @echo Computes the matrix product using the standard row-by-column multiplication.
-    /// </summary>
+        /// <summary>
+        /// @brief Multiplies this matrix by another.
+        /// @param other Right-hand matrix.
+        /// @return Product matrix.
+        /// @throws ArgumentException If dimensions are incompatible.
+        /// @echo Computes the matrix product using the standard row-by-column multiplication.
+        /// </summary>
         public Matrix Multiply(Matrix other)
         {
             if (Cols != other.Rows)
@@ -137,11 +134,11 @@ namespace MatrixLib
             return result;
         }
 
-    /// <summary>
-    /// @brief Returns the transposed matrix.
-    /// @return A new transposed matrix.
-    /// @echo Swaps rows and columns of the original matrix.
-    /// </summary>
+        /// <summary>
+        /// @brief Returns the transposed matrix.
+        /// @return A new transposed matrix.
+        /// @echo Swaps rows and columns of the original matrix.
+        /// </summary>
         public Matrix Transpose()
         {
             Matrix result = new(Cols, Rows);
@@ -151,13 +148,13 @@ namespace MatrixLib
             return result;
         }
 
-    /// <summary>
-    /// @brief Creates an identity matrix.
-    /// @param n Size of the identity matrix.
-    /// @return n × n identity matrix.
-    /// @throws ArgumentException If n ≤ 0.
-    /// @echo All diagonal elements are set to 1, all others to 0.
-    /// </summary>
+        /// <summary>
+        /// @brief Creates an identity matrix.
+        /// @param n Size of the identity matrix.
+        /// @return n × n identity matrix.
+        /// @throws ArgumentException If n ≤ 0.
+        /// @echo All diagonal elements are set to 1, all others to 0.
+        /// </summary>
         public static Matrix Identity(int n)
         {
             if (n <= 0)
@@ -170,13 +167,13 @@ namespace MatrixLib
         }
 
 
-    /// <summary>
-    /// @brief Validates that matrix sizes match.
-    /// @param other Matrix to compare.
-    /// @throws ArgumentNullException If other is null.
-    /// @throws ArgumentException If sizes differ.
-    /// @echo Ensures matrices have identical dimensions before arithmetic operations.
-    /// </summary>
+        /// <summary>
+        /// @brief Validates that matrix sizes match.
+        /// @param other Matrix to compare.
+        /// @throws ArgumentNullException If other is null.
+        /// @throws ArgumentException If sizes differ.
+        /// @echo Ensures matrices have identical dimensions before arithmetic operations.
+        /// </summary>
         private void ValidateSameSize(Matrix other)
         {
             if (other == null)
@@ -185,10 +182,10 @@ namespace MatrixLib
                 throw new ArgumentException("Matrices must be the same size.");
         }
 
-    /// <summary>
-    /// @brief Compares matrices for equality with tolerance.
-    /// @echo Returns true if all elements are equal within a tolerance of 1e-9.
-    /// </summary>
+        /// <summary>
+        /// @brief Compares matrices for equality with tolerance.
+        /// @echo Returns true if all elements are equal within a tolerance of 1e-9.
+        /// </summary>
         public override bool Equals(object? obj)
         {
             if (obj is not Matrix other || other.Rows != Rows || other.Cols != Cols)
@@ -204,11 +201,11 @@ namespace MatrixLib
 
         public override int GetHashCode() => HashCode.Combine(Rows, Cols);
 
-    /// <summary>
-    /// @brief Returns matrix as formatted string.
-    /// @return Readable matrix output.
-    /// @echo Each row is displayed in brackets, elements aligned and formatted to 2 decimal places.
-    /// </summary>
+        /// <summary>
+        /// @brief Returns matrix as formatted string.
+        /// @return Readable matrix output.
+        /// @echo Each row is displayed in brackets, elements aligned and formatted to 2 decimal places.
+        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new();
