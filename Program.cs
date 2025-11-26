@@ -3,43 +3,19 @@ using System.Text;
 
 namespace MatrixLib
 {
-    /// <summary>
-    /// @brief Represents a 2D matrix supporting arithmetic operations.
-    /// @example
-    /// Matrix a = new Matrix(2, 2);
-    /// Matrix b = Matrix.Identity(2);
-    /// Matrix c = a.Add(b);
-    // </summary>
-
     public class Matrix
     {
         private readonly double[,] _data;
 
-        /// <summary>@brief Number of matrix rows.</summary>
         public int Rows { get; }
-
-        /// <summary>@brief Number of matrix columns.</summary>
         public int Cols { get; }
 
-        /// <summary>
-        /// @brief Indexer for accessing matrix elements.
-        /// @param i Row index.
-        /// @param j Column index.
-        /// @return Value at position (i, j).
-        /// </summary>
         public double this[int i, int j]
         {
             get => _data[i, j];
             set => _data[i, j] = value;
         }
 
-
-        /// <summary>
-        /// @brief Creates an empty matrix of given dimensions.
-        /// @param rows Number of rows.
-        /// @param cols Number of columns.
-        /// @throws ArgumentException If dimensions are non-positive.
-        /// </summary>
         public Matrix(int rows, int cols)
         {
             if (rows <= 0 || cols <= 0)
@@ -50,11 +26,6 @@ namespace MatrixLib
         }
 
 
-        /// <summary>
-        /// @brief Creates a matrix from a 2D array.
-        /// @param source Source 2D double array.
-        /// @throws ArgumentNullException If source is null.
-        /// </summary>
         public Matrix(double[,] source)
         {
             if (source == null)
@@ -67,12 +38,6 @@ namespace MatrixLib
         }
 
 
-        /// <summary>
-        /// @brief Adds two matrices.
-        /// @param other Matrix to add.
-        /// @return New matrix containing the sum.
-        /// @throws ArgumentException If sizes differ.
-        /// </summary>
         public Matrix Add(Matrix other)
         {
             ValidateSameSize(other);
@@ -85,12 +50,6 @@ namespace MatrixLib
             return result;
         }
 
-        /// <summary>
-        /// @brief Subtracts another matrix from this one.
-        /// @param other Matrix to subtract.
-        /// @return New matrix containing the result.
-        /// @throws ArgumentException If sizes differ.
-        /// </summary>
         public Matrix Subtract(Matrix other)
         {
             ValidateSameSize(other);
@@ -103,12 +62,6 @@ namespace MatrixLib
             return result;
         }
 
-        /// <summary>
-        /// @brief Multiplies this matrix by another.
-        /// @param other Right-hand matrix.
-        /// @return Product matrix.
-        /// @throws ArgumentException If dimensions are incompatible.
-        /// </summary>
         public Matrix Multiply(Matrix other)
         {
             if (Cols != other.Rows)
@@ -128,10 +81,6 @@ namespace MatrixLib
             return result;
         }
 
-        /// <summary>
-        /// @brief Returns the transposed matrix.
-        /// @return A new transposed matrix.
-        /// </summary>
         public Matrix Transpose()
         {
             Matrix result = new(Cols, Rows);
@@ -141,12 +90,6 @@ namespace MatrixLib
             return result;
         }
 
-        /// <summary>
-        /// @brief Creates an identity matrix.
-        /// @param n Size of the identity matrix.
-        /// @return n × n identity matrix.
-        /// @throws ArgumentException If n ≤ 0.
-        /// </summary>
         public static Matrix Identity(int n)
         {
             if (n <= 0)
@@ -159,12 +102,6 @@ namespace MatrixLib
         }
 
 
-        /// <summary>
-        /// @brief Validates that matrix sizes match.
-        /// @param other Matrix to compare.
-        /// @throws ArgumentNullException If other is null.
-        /// @throws ArgumentException If sizes differ.
-        /// </summary>
         private void ValidateSameSize(Matrix other)
         {
             if (other == null)
@@ -173,7 +110,6 @@ namespace MatrixLib
                 throw new ArgumentException("Matrices must be the same size.");
         }
 
-        /// <summary>@brief Compares matrices for equality with tolerance.</summary>
         public override bool Equals(object? obj)
         {
             if (obj is not Matrix other || other.Rows != Rows || other.Cols != Cols)
@@ -189,10 +125,6 @@ namespace MatrixLib
 
         public override int GetHashCode() => HashCode.Combine(Rows, Cols);
 
-        /// <summary>
-        /// @brief Returns matrix as formatted string.
-        /// @return Readable matrix output.
-        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new();
