@@ -1,0 +1,253 @@
+\doxysection{Matrix\+Lib.\+Matrix Class Reference}
+\hypertarget{classMatrixLib_1_1Matrix}{}\label{classMatrixLib_1_1Matrix}\index{MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix_a522e17a37404103b93b1667b4d3dde3b}{Matrix}} (int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Creates an empty matrix of given dimensions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix_afc9976f671fd95316ff04dfa3d0fac49}{Matrix}} (double\mbox{[},\mbox{]} source)
+\begin{DoxyCompactList}\small\item\em Creates a matrix from a 2D array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} \mbox{\hyperlink{classMatrixLib_1_1Matrix_ab2b6e4f3a5c7121e6e8d81a0d1753abc}{Add}} (\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} other)
+\begin{DoxyCompactList}\small\item\em Adds two matrices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} \mbox{\hyperlink{classMatrixLib_1_1Matrix_a719e48a4e1e54fda89f11b2b604b6c6e}{Subtract}} (\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} other)
+\begin{DoxyCompactList}\small\item\em Subtracts another matrix from this one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} \mbox{\hyperlink{classMatrixLib_1_1Matrix_a44aa832509e71a6933c69f0f8d06b34a}{Multiply}} (\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} other)
+\begin{DoxyCompactList}\small\item\em Multiplies this matrix by another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} \mbox{\hyperlink{classMatrixLib_1_1Matrix_a79862a4155eb739cd99b77f565549786}{Transpose}} ()
+\begin{DoxyCompactList}\small\item\em Returns the transposed matrix. \end{DoxyCompactList}\item 
+\Hypertarget{classMatrixLib_1_1Matrix_a6f8edb3f2ff6b5101c08b4b1942eb559}\label{classMatrixLib_1_1Matrix_a6f8edb3f2ff6b5101c08b4b1942eb559} 
+override bool {\bfseries Equals} (object? obj)
+\begin{DoxyCompactList}\small\item\em Compares matrices for equality with tolerance. \end{DoxyCompactList}\item 
+\Hypertarget{classMatrixLib_1_1Matrix_a2aadb7c7276a690dad5593d0f686ffdd}\label{classMatrixLib_1_1Matrix_a2aadb7c7276a690dad5593d0f686ffdd} 
+override int {\bfseries Get\+Hash\+Code} ()
+\item 
+override string \mbox{\hyperlink{classMatrixLib_1_1Matrix_aa85319dec149164b73db1e4d697b9333}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Returns matrix as formatted string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} \mbox{\hyperlink{classMatrixLib_1_1Matrix_a62c686422bb2a39f35a11ef980e01595}{Identity}} (int n)
+\begin{DoxyCompactList}\small\item\em Creates an identity matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMatrixLib_1_1Matrix_a27886a9a0abfdc10176376b372d1acf0}\label{classMatrixLib_1_1Matrix_a27886a9a0abfdc10176376b372d1acf0} 
+int {\bfseries Rows}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of matrix rows. \end{DoxyCompactList}\item 
+\Hypertarget{classMatrixLib_1_1Matrix_ab8714fcad5f64ef3955673f6c0cd5cd9}\label{classMatrixLib_1_1Matrix_ab8714fcad5f64ef3955673f6c0cd5cd9} 
+int {\bfseries Cols}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of matrix columns. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatrixLib_1_1Matrix_ae4e9877c69cc75f4cac90a6f64cf3e9e}{this\mbox{[}int i, int j\mbox{]}}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Indexer for accessing matrix elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMatrixLib_1_1Matrix_a522e17a37404103b93b1667b4d3dde3b}\label{classMatrixLib_1_1Matrix_a522e17a37404103b93b1667b4d3dde3b} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Matrix\+Lib.\+Matrix.\+Matrix (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates an empty matrix of given dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows. \\
+\hline
+{\em cols} & Number of columns. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If dimensions are non-\/positive. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classMatrixLib_1_1Matrix_afc9976f671fd95316ff04dfa3d0fac49}\label{classMatrixLib_1_1Matrix_afc9976f671fd95316ff04dfa3d0fac49} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Matrix\+Lib.\+Matrix.\+Matrix (\begin{DoxyParamCaption}\item[{double}]{source\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matrix from a 2D array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source 2D double array. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & If source is null. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMatrixLib_1_1Matrix_ab2b6e4f3a5c7121e6e8d81a0d1753abc}\label{classMatrixLib_1_1Matrix_ab2b6e4f3a5c7121e6e8d81a0d1753abc} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Add@{Add}}
+\index{Add@{Add}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} Matrix\+Lib.\+Matrix.\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}}}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds two matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Matrix to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New matrix containing the sum. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If sizes differ. \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+\Hypertarget{classMatrixLib_1_1Matrix_a62c686422bb2a39f35a11ef980e01595}\label{classMatrixLib_1_1Matrix_a62c686422bb2a39f35a11ef980e01595} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Identity@{Identity}}
+\index{Identity@{Identity}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Identity()}{Identity()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} Matrix\+Lib.\+Matrix.\+Identity (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates an identity matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Size of the identity matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n × n identity matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If n ≤ 0. \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+\Hypertarget{classMatrixLib_1_1Matrix_a44aa832509e71a6933c69f0f8d06b34a}\label{classMatrixLib_1_1Matrix_a44aa832509e71a6933c69f0f8d06b34a} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Multiply@{Multiply}}
+\index{Multiply@{Multiply}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Multiply()}{Multiply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} Matrix\+Lib.\+Matrix.\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}}}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this matrix by another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Right-\/hand matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Product matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If dimensions are incompatible. \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+\Hypertarget{classMatrixLib_1_1Matrix_a719e48a4e1e54fda89f11b2b604b6c6e}\label{classMatrixLib_1_1Matrix_a719e48a4e1e54fda89f11b2b604b6c6e} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Subtract@{Subtract}}
+\index{Subtract@{Subtract}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Subtract()}{Subtract()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} Matrix\+Lib.\+Matrix.\+Subtract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}}}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts another matrix from this one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Matrix to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New matrix containing the result. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If sizes differ. \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+\Hypertarget{classMatrixLib_1_1Matrix_aa85319dec149164b73db1e4d697b9333}\label{classMatrixLib_1_1Matrix_aa85319dec149164b73db1e4d697b9333} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!ToString@{ToString}}
+\index{ToString@{ToString}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Matrix\+Lib.\+Matrix.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns matrix as formatted string. 
+
+\begin{DoxyReturn}{Returns}
+Readable matrix output. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+\Hypertarget{classMatrixLib_1_1Matrix_a79862a4155eb739cd99b77f565549786}\label{classMatrixLib_1_1Matrix_a79862a4155eb739cd99b77f565549786} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!Transpose@{Transpose}}
+\index{Transpose@{Transpose}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{Transpose()}{Transpose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrixLib_1_1Matrix}{Matrix}} Matrix\+Lib.\+Matrix.\+Transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the transposed matrix. 
+
+\begin{DoxyReturn}{Returns}
+A new transposed matrix. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example}{/home/runner/work/\+Lab-\/1-\/\+Boichuk/\+Lab-\/1-\/\+Boichuk/\+Program.\+cs}}.\end{Desc}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classMatrixLib_1_1Matrix_ae4e9877c69cc75f4cac90a6f64cf3e9e}\label{classMatrixLib_1_1Matrix_ae4e9877c69cc75f4cac90a6f64cf3e9e} 
+\index{MatrixLib.Matrix@{MatrixLib.Matrix}!this\mbox{[}int i, int j\mbox{]}@{this[int i, int j]}}
+\index{this\mbox{[}int i, int j\mbox{]}@{this[int i, int j]}!MatrixLib.Matrix@{MatrixLib.Matrix}}
+\doxysubsubsection{\texorpdfstring{this[int i, int j]}{this[int i, int j]}}
+{\footnotesize\ttfamily double Matrix\+Lib.\+Matrix.\+this\mbox{[}int i, int j\mbox{]}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Indexer for accessing matrix elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Row index. \\
+\hline
+{\em j} & Column index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value at position (i, j). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Program.\+cs\end{DoxyCompactItemize}
