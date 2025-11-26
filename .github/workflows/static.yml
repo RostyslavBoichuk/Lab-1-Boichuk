@@ -1,0 +1,38 @@
+name: Generate and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Doxygen and Graphviz
+      run: sudo apt update && sudo apt install -y doxygen graphviz
+
+    - name: Ensure docs folder exists
+      run: mkdir -p docs
+
+    - name: Ensure Doxyfile exists
+      run: |
+        if [ ! -f docs/Doxyfile ]; then
+          doxygen -g docs/Doxyfile
+          sed -i 's|OUTPUT_DIRECTORY       =|OUTPUT_DIRECTORY       = html|' docs/Doxyfile
+          sed -i 's|GENERATE_HTML          = NO|GENERATE_HTML          = YES|' docs/Doxyfile
+        fi
+
+    - name: Generate Documentation
+      run: doxygen docs/Doxyfile
+
+    - name: Deploy Documentation to GitHub Pages (Static HTML)
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./html
+        publish_branch: gh-pages
