@@ -104,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a79862a4155eb739cd99b77f565549786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f8edb3f2ff6b5101c08b4b1942eb559" id="r_a6f8edb3f2ff6b5101c08b4b1942eb559"><td class="memItemLeft" align="right" valign="top"><a id="a6f8edb3f2ff6b5101c08b4b1942eb559" name="a6f8edb3f2ff6b5101c08b4b1942eb559"></a>
 override bool&#160;</td><td class="memItemRight" valign="bottom"><b>Equals</b> (object? obj)</td></tr>
-<tr class="memdesc:a6f8edb3f2ff6b5101c08b4b1942eb559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares matrices for equality with tolerance. <br /></td></tr>
+<tr class="memdesc:a6f8edb3f2ff6b5101c08b4b1942eb559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares matrices for equality with tolerance. @echo Returns true if all elements are equal within a tolerance of 1e-9. <br /></td></tr>
 <tr class="separator:a6f8edb3f2ff6b5101c08b4b1942eb559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aadb7c7276a690dad5593d0f686ffdd" id="r_a2aadb7c7276a690dad5593d0f686ffdd"><td class="memItemLeft" align="right" valign="top"><a id="a2aadb7c7276a690dad5593d0f686ffdd" name="a2aadb7c7276a690dad5593d0f686ffdd"></a>
 override int&#160;</td><td class="memItemRight" valign="bottom"><b>GetHashCode</b> ()</td></tr>
@@ -178,7 +178,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentException</td><td>If dimensions are non-positive. </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If dimensions are non-positive. @echo Initializes all matrix elements to 0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,7 +218,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentNullException</td><td>If source is null. </td></tr>
+    <tr><td class="paramname">ArgumentNullException</td><td>If source is null. @echo Copies all elements from the source array into the new matrix. </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,7 +260,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 <dl class="section return"><dt>Returns</dt><dd>New matrix containing the sum. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentException</td><td>If sizes differ. </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If sizes differ. @echo Performs element-wise addition and returns a new matrix. </td></tr>
   </table>
   </dd>
 </dl>
@@ -303,7 +303,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 <dl class="section return"><dt>Returns</dt><dd>n × n identity matrix. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentException</td><td>If n ≤ 0. </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If n ≤ 0. @echo All diagonal elements are set to 1, all others to 0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -346,7 +346,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 <dl class="section return"><dt>Returns</dt><dd>Product matrix. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentException</td><td>If dimensions are incompatible. </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If dimensions are incompatible. @echo Computes the matrix product using the standard row-by-column multiplication. </td></tr>
   </table>
   </dd>
 </dl>
@@ -389,7 +389,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 <dl class="section return"><dt>Returns</dt><dd>New matrix containing the result. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">ArgumentException</td><td>If sizes differ. </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>If sizes differ. @echo Performs element-wise subtraction and returns a new matrix. </td></tr>
   </table>
   </dd>
 </dl>
@@ -422,7 +422,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 </div><div class="memdoc">
 
 <p>Returns matrix as formatted string. </p>
-<dl class="section return"><dt>Returns</dt><dd>Readable matrix output. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Readable matrix output. @echo Each row is displayed in brackets, elements aligned and formatted to 2 decimal places. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example.html#a8">/home/runner/work/Lab-1-Boichuk/Lab-1-Boichuk/Program.cs</a>.</dd>
 </dl>
 
@@ -452,7 +452,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
 </div><div class="memdoc">
 
 <p>Returns the transposed matrix. </p>
-<dl class="section return"><dt>Returns</dt><dd>A new transposed matrix. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A new transposed matrix. @echo Swaps rows and columns of the original matrix. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2Lab-1-Boichuk_2Lab-1-Boichuk_2Program_8cs-example.html#a5">/home/runner/work/Lab-1-Boichuk/Lab-1-Boichuk/Program.cs</a>.</dd>
 </dl>
 
@@ -487,7 +487,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Cols</b><code> [get]</
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Value at position (i, j). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value at position (i, j). @echo Allows reading and writing individual matrix elements using [i,j] syntax. </dd></dl>
 
 </div>
 </div>

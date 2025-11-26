@@ -17,7 +17,7 @@
 \begin{DoxyCompactList}\small\item\em Returns the transposed matrix. \end{DoxyCompactList}\item 
 \Hypertarget{classMatrixLib_1_1Matrix_a6f8edb3f2ff6b5101c08b4b1942eb559}\label{classMatrixLib_1_1Matrix_a6f8edb3f2ff6b5101c08b4b1942eb559} 
 override bool {\bfseries Equals} (object? obj)
-\begin{DoxyCompactList}\small\item\em Compares matrices for equality with tolerance. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compares matrices for equality with tolerance. @echo Returns true if all elements are equal within a tolerance of 1e-\/9. \end{DoxyCompactList}\item 
 \Hypertarget{classMatrixLib_1_1Matrix_a2aadb7c7276a690dad5593d0f686ffdd}\label{classMatrixLib_1_1Matrix_a2aadb7c7276a690dad5593d0f686ffdd} 
 override int {\bfseries Get\+Hash\+Code} ()
 \item 
@@ -61,7 +61,7 @@ Creates an empty matrix of given dimensions.
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Exception} & If dimensions are non-\/positive. \\
+{\em Argument\+Exception} & If dimensions are non-\/positive. @echo Initializes all matrix elements to 0. \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classMatrixLib_1_1Matrix_afc9976f671fd95316ff04dfa3d0fac49}\label{classMatrixLib_1_1Matrix_afc9976f671fd95316ff04dfa3d0fac49} 
@@ -81,7 +81,7 @@ Creates a matrix from a 2D array.
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Null\+Exception} & If source is null. \\
+{\em Argument\+Null\+Exception} & If source is null. @echo Copies all elements from the source array into the new matrix. \\
 \hline
 \end{DoxyExceptions}
 
@@ -107,7 +107,7 @@ New matrix containing the sum.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Exception} & If sizes differ. \\
+{\em Argument\+Exception} & If sizes differ. @echo Performs element-\/wise addition and returns a new matrix. \\
 \hline
 \end{DoxyExceptions}
 \begin{Desc}
@@ -133,7 +133,7 @@ n × n identity matrix.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Exception} & If n ≤ 0. \\
+{\em Argument\+Exception} & If n ≤ 0. @echo All diagonal elements are set to 1, all others to 0. \\
 \hline
 \end{DoxyExceptions}
 \begin{Desc}
@@ -159,7 +159,7 @@ Product matrix.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Exception} & If dimensions are incompatible. \\
+{\em Argument\+Exception} & If dimensions are incompatible. @echo Computes the matrix product using the standard row-\/by-\/column multiplication. \\
 \hline
 \end{DoxyExceptions}
 \begin{Desc}
@@ -185,7 +185,7 @@ New matrix containing the result.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Argument\+Exception} & If sizes differ. \\
+{\em Argument\+Exception} & If sizes differ. @echo Performs element-\/wise subtraction and returns a new matrix. \\
 \hline
 \end{DoxyExceptions}
 \begin{Desc}
@@ -202,7 +202,7 @@ New matrix containing the result.
 Returns matrix as formatted string. 
 
 \begin{DoxyReturn}{Returns}
-Readable matrix output. 
+Readable matrix output. @echo Each row is displayed in brackets, elements aligned and formatted to 2 decimal places. 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
@@ -218,7 +218,7 @@ Readable matrix output.
 Returns the transposed matrix. 
 
 \begin{DoxyReturn}{Returns}
-A new transposed matrix. 
+A new transposed matrix. @echo Swaps rows and columns of the original matrix. 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
@@ -244,7 +244,7 @@ Indexer for accessing matrix elements.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Value at position (i, j). 
+Value at position (i, j). @echo Allows reading and writing individual matrix elements using \mbox{[}i,j\mbox{]} syntax. 
 \end{DoxyReturn}
 
 
